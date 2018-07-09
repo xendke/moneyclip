@@ -1,5 +1,8 @@
 import uuid from 'uuid';
 
+/*
+* Expenses
+*/
 export const addExpense = (
 	{ description = '', note = '', amount = 0, createdAt = 0 } = {}
 ) => ({
@@ -28,6 +31,10 @@ export const editExpense = ({ id, description, note, amount }) => ({
 	}
 });
 
+
+/*
+* Filters
+*/
 export const setTextFilter = (text) => ({
 	type: 'SET_TEXT_FILTER',
 	text
