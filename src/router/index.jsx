@@ -8,7 +8,7 @@ import NotFoundPage from '../components/NotFoundPage';
 import Header from '../components/Header';
 
 
-const AppRouter = (props) => (
+const AppRouter = () => (
 	<BrowserRouter>
 		<div>
 			<Header />
