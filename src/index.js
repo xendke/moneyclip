@@ -9,7 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { Provider } from 'react-redux';
 import configureStore from './redux/configureStore';
-import { addExpense, setTextFilter } from './redux/actions';
+import { addExpense } from './redux/actions';
 import getVisibleExpenses from './redux/selectors';
 
 const store = configureStore();
@@ -26,12 +26,18 @@ store.dispatch(addExpense({
 	createdAt: 200
 }));
 store.dispatch(addExpense({
+	description: "new pool",
+	note: "",
+	amount: 80000,
+	createdAt: 500
+}));
+store.dispatch(addExpense({
 	description: "electricity bill",
 	note: "june electricity",
 	amount: 20000,
 	createdAt: 300
 }));
-store.dispatch(setTextFilter('bill'));
+
 const visibleExpenses = getVisibleExpenses(store.getState().expenses, store.getState().filters);
 console.log(visibleExpenses);
 
