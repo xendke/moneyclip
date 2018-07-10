@@ -31,7 +31,7 @@ store.dispatch(addExpense({
 	amount: 20000,
 	createdAt: 300
 }));
-store.dispatch(setTextFilter());
+store.dispatch(setTextFilter('bill'));
 const visibleExpenses = getVisibleExpenses(store.getState().expenses, store.getState().filters);
 console.log(visibleExpenses);
 
