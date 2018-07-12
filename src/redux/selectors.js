@@ -1,9 +1,9 @@
 const getVisibleExpenses = (expenses, { text = '', startDate, endDate, sortBy }) => {
 	// Filter and sort expenses.
-	return expenses.filter((expense) => {
+	const t = expenses.filter((expense) => {
 		const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
 		const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
-		const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= startDate;
+		const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
 
 		return textMatch && startDateMatch && endDateMatch;
 	}).sort((a, b) => {
@@ -14,6 +14,7 @@ const getVisibleExpenses = (expenses, { text = '', startDate, endDate, sortBy })
 		} else {
 			throw new Error(`sorting by: '${sortBy}' not supported`);
 		}
-	});
+	})
+	return t;
 };
 export default getVisibleExpenses;

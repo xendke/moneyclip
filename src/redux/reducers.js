@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import moment from 'moment';
 
 /*
 * Expenses Reducer
@@ -34,8 +35,8 @@ const expensesReducer = (state = expensesDefaultState, action) => {
 const filtersDefaultState = {
 	text: '',
 	sortBy: 'date',
-	startDate: undefined,
-	endDate: undefined
+	startDate: moment().startOf('month').valueOf(),
+	endDate: moment().endOf('month').valueOf()
 };
 const filtersReducer = (state = filtersDefaultState, action) => {
 	switch (action.type) {
