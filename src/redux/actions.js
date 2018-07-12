@@ -21,13 +21,14 @@ export const removeExpense = ({ id }) => ({
 	id
 });
 
-export const editExpense = ({ id, description, note, amount }) => ({
+export const editExpense = ({ id, description, note, amount, createdAt }) => ({
 	type: 'EDIT_EXPENSE',
 	id,
 	updates: {
 		description,
 		note,
-		amount
+		amount,
+		createdAt
 	}
 });
 

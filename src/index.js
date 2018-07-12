@@ -10,9 +10,12 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import configureStore from './redux/configureStore';
 import { addExpense } from './redux/actions';
-import getVisibleExpenses from './redux/selectors';
 
 const store = configureStore();
+
+/*
+* Test data
+*/
 store.dispatch(addExpense({
 	description: "rent",
 	note: "june rent",
@@ -37,9 +40,6 @@ store.dispatch(addExpense({
 	amount: 20000,
 	createdAt: 300
 }));
-
-const visibleExpenses = getVisibleExpenses(store.getState().expenses, store.getState().filters);
-console.log(visibleExpenses);
 
 const jsx = (
 	<Provider store={store}>
