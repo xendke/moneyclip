@@ -1,10 +1,11 @@
 import { createStore } from 'redux';
-import expensesReducers from './reducers';
+import reducers from './reducers';
 
 
 export default () => {
 	const store = createStore(
-		expensesReducers
+		reducers,
+		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 	);
 	return store;
 };

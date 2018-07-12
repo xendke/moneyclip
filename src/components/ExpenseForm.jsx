@@ -85,8 +85,8 @@ class ExpenseForm extends React.Component {
 						numberOfMonths={1}
 						isOutsideRange={(day) => (false)}
 					/>
-					<button>Add Expense</button>
-					<button onClick={this.props.onRemoveClick}>remove</button>
+					<button>{this.props.expense ? "Edit" : "Add"} Expense</button>
+					{this.props.expense ? <button onClick={this.props.onRemoveClick}>remove</button> : null}
 				</form>
 			</div>
 		);
