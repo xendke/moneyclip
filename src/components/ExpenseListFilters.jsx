@@ -22,14 +22,16 @@ class ExpenseListFilters extends React.Component {
 					<option value="amount">Amount</option>
 				</select>
 				<DateRangePicker
-					startDate={moment(filters.startDate)}
+					startDate={filters.startDate ? moment(filters.startDate) : undefined}
 					startDateId="ExpenseListFilters__DateRangePicker__StartDate"
-					endDate={moment(filters.endDate)}
+					endDate={filters.endDate ? moment(filters.endDate) : undefined}
 					endDateId="ExpenseListFilters__DateRangePicker__EndDate"
 					focusedInput={this.state.calendarFocused}
 					onFocusChange={this.onFocusChange}
 					onDatesChange={onDatesChange}
 					isOutsideRange={() => (false)}
+					numberOfMonths={1}
+					showClearDates={true}
 				/>
 			</div>
 		);
@@ -54,8 +56,8 @@ const mapDispatchToProps = (dispatch) => {
 			}
 		},
 		onDatesChange: ({ startDate, endDate }) => {
-			if (startDate) dispatch(setStartDate({ startDate: startDate.valueOf() }));
-			if (endDate) dispatch(setEndDate({ endDate: endDate.valueOf() }));
+			dispatch(setStartDate({ startDate }));
+			dispatch(setEndDate({ endDate }));
 		}
 	}
 }

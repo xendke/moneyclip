@@ -1,9 +1,12 @@
+import moment from 'moment';
+
 const getVisibleExpenses = (expenses, { text = '', startDate, endDate, sortBy }) => {
 	// Filter and sort expenses.
 	const t = expenses.filter((expense) => {
 		const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
-		const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
-		const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
+		const momentCreated = moment(expense.createdA);
+		const startDateMatch = startDate ? startDate.isSameOrBefore(momentCreated, 'day') : true;
+		const endDateMatch = endDate ? endDate.isSameOrAfter(momentCreated, 'day') : true;
 
 		return textMatch && startDateMatch && endDateMatch;
 	}).sort((a, b) => {

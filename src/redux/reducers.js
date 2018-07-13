@@ -35,8 +35,8 @@ const expensesReducer = (state = expensesDefaultState, action) => {
 const filtersDefaultState = {
 	text: '',
 	sortBy: 'date',
-	startDate: moment().startOf('month').valueOf(),
-	endDate: moment().endOf('month').valueOf()
+	startDate: moment().startOf('month'),
+	endDate: moment().endOf('month')
 };
 const filtersReducer = (state = filtersDefaultState, action) => {
 	switch (action.type) {
