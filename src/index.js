@@ -20,25 +20,25 @@ store.dispatch(addExpense({
 	description: "rent",
 	note: "june rent",
 	amount: 120000,
-	createdAt: 0
+	createdAt: 1531433953315
 }));
 store.dispatch(addExpense({
 	description: "water bill",
 	note: "june water",
 	amount: 7330,
-	createdAt: 200
+	createdAt: 1531433953315
 }));
 store.dispatch(addExpense({
 	description: "new pool",
 	note: "",
 	amount: 80000,
-	createdAt: 500
+	createdAt: 1531433953315
 }));
 store.dispatch(addExpense({
 	description: "electricity bill",
 	note: "june electricity",
 	amount: 20000,
-	createdAt: 300
+	createdAt: 1531433953315
 }));
 
 const jsx = (
