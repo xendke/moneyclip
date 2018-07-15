@@ -2,11 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate } from '../redux/actions';
 import { DateRangePicker } from 'react-dates';
-import moment from 'moment';
 
 class ExpenseListFilters extends React.Component {
 	state = {
-		calendarFocused: null
+		calendarFocused: null // because there are two date pickers, value is not just true/false
 	}
 	onFocusChange = (focus) => {
 		this.setState(() => ({ calendarFocused: focus }));
@@ -22,13 +21,13 @@ class ExpenseListFilters extends React.Component {
 					<option value="amount">Amount</option>
 				</select>
 				<DateRangePicker
-					startDate={filters.startDate ? moment(filters.startDate) : undefined}
+					onDatesChange={onDatesChange}
+					startDate={filters.startDate ? filters.startDate : undefined}
+					endDate={filters.endDate ? filters.endDate : undefined}
 					startDateId="ExpenseListFilters__DateRangePicker__StartDate"
-					endDate={filters.endDate ? moment(filters.endDate) : undefined}
 					endDateId="ExpenseListFilters__DateRangePicker__EndDate"
 					focusedInput={this.state.calendarFocused}
 					onFocusChange={this.onFocusChange}
-					onDatesChange={onDatesChange}
 					isOutsideRange={() => (false)}
 					numberOfMonths={1}
 					showClearDates={true}
