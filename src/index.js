@@ -9,43 +9,17 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { Provider } from 'react-redux';
 import configureStore from './redux/configureStore';
-import { addExpense } from './redux/actions';
+import addMockExpenses from './utils/mockStoreData';
 
 const store = configureStore();
 
-/*
-* Test data
-*/
-store.dispatch(addExpense({
-	description: "rent",
-	note: "june rent",
-	amount: 120000,
-	createdAt: 1531433953315
-}));
-store.dispatch(addExpense({
-	description: "water bill",
-	note: "june water",
-	amount: 7330,
-	createdAt: 1531433953315
-}));
-store.dispatch(addExpense({
-	description: "new pool",
-	note: "",
-	amount: 80000,
-	createdAt: 1531433953315
-}));
-store.dispatch(addExpense({
-	description: "electricity bill",
-	note: "june electricity",
-	amount: 20000,
-	createdAt: 1531433953315
-}));
+addMockExpenses(store);
 
-const jsx = (
+const wrappedApp = (
 	<Provider store={store}>
 		<AppRouter />
 	</Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('root'));
+ReactDOM.render(wrappedApp, document.getElementById('root'));
 registerServiceWorker();
