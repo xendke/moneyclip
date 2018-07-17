@@ -1,5 +1,6 @@
 import * as actions from '../../redux/actions';
 import moment from 'moment';
+
 /*
 * Expenses
 */
@@ -16,10 +17,10 @@ it('returns valid addExpense action from given input', () => {
 	const expected = {
 		type: 'ADD_EXPENSE',
 		expense: {
-			id: addExpenseAction.expense.id,
+			id: expect.any(String),
 			description: "testing",
 			amount: 10,
-			createdAt: addExpenseAction.expense.createdAt,
+			createdAt: expect.any(Number),
 			note: ''
 		}
 	};
@@ -31,7 +32,7 @@ it('returns valid addExpense action (default values)', () => {
 	const expected = {
 		type: 'ADD_EXPENSE',
 		expense: {
-			id: addExpenseAction.expense.id, // use expect.any(String) for more dynamic data
+			id: expect.any(String),
 			description: '',
 			amount: 0,
 			createdAt: 0,
@@ -51,7 +52,7 @@ it('returns valid removeExense action', () => {
 });
 
 it('returns valid editExpense action', () => {
-	const createdAt = moment().valueOf()
+	const createdAt = moment().valueOf();
 	const action = actions.editExpense({
 		id: '123abc',
 		description: 'testing',
@@ -66,7 +67,7 @@ it('returns valid editExpense action', () => {
 			description: 'testing',
 			note: '',
 			amount: 300,
-			createdAt
+			createdAt: expect.any(Number)
 		}
 	};
 	expect(action).toEqual(expected);
@@ -75,3 +76,60 @@ it('returns valid editExpense action', () => {
 /*
 * Filters
 */
+it('returns valid setTextFilter action', () => {
+	// default value
+	let action = actions.setTextFilter();
+	let expected = {
+		type: 'SET_TEXT_FILTER',
+		text: undefined
+	};
+
+	expect(action).toEqual(expected);
+
+	// with value
+	action = actions.setTextFilter('something');
+	expected = {
+		type: 'SET_TEXT_FILTER',
+		text: expect.any(String)
+	};
+
+	expect(action).toEqual(expected);
+});
+
+it('returns valid sortByDate action', () => {
+	const action = actions.sortByDate();
+	const expected = {
+		type: 'SORT_BY_DATE'
+	};
+
+	expect(action).toEqual(expected);
+});
+
+it('returns valid sortByAmount action', () => {
+	const action = actions.sortByAmount();
+	const expected = {
+		type: 'SORT_BY_AMOUNT'
+	}
+
+	expect(action).toEqual(expected);
+});
+
+it('returns valid setStartDate action', () => {
+	const action = actions.setStartDate({ startDate: moment() });
+	const expected = {
+		type: 'SET_START_DATE',
+		startDate: expect.any(moment)
+	};
+
+	expect(action).toEqual(expected);
+});
+
+it('returns valid setEndDate action', () => {
+	const action = actions.setEndDate({ endDate: moment() });
+	const expected = {
+		type: 'SET_END_DATE',
+		endDate: expect.any(moment)
+	};
+
+	expect(action).toEqual(expected);
+});
