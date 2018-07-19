@@ -5,7 +5,7 @@ import moment from 'moment';
 * Expenses Reducer
 */
 const expensesDefaultState = [];
-const expensesReducer = (state = expensesDefaultState, action) => {
+export const expensesReducer = (state = expensesDefaultState, action) => {
 	switch (action.type) {
 		case 'ADD_EXPENSE':
 			return [
@@ -38,7 +38,7 @@ const filtersDefaultState = {
 	startDate: moment().startOf('month'),
 	endDate: moment().endOf('month')
 };
-const filtersReducer = (state = filtersDefaultState, action) => {
+export const filtersReducer = (state = filtersDefaultState, action) => {
 	switch (action.type) {
 		case 'SET_TEXT_FILTER':
 			return { ...state, text: action.text };
