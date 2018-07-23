@@ -9,7 +9,7 @@ it('returns valid addExpense action from given input', () => {
 		{
 			description: "testing",
 			amount: 10,
-			createdAt: moment().valueOf(),
+			createdAt: 1000,
 			note: ''
 		}
 	);
@@ -52,13 +52,12 @@ it('returns valid removeExense action', () => {
 });
 
 it('returns valid editExpense action', () => {
-	const createdAt = moment().valueOf();
 	const action = actions.editExpense({
 		id: '123abc',
 		description: 'testing',
 		note: '',
 		amount: 300,
-		createdAt
+		createdAt: 0
 	});
 	const expected = {
 		type: 'EDIT_EXPENSE',
@@ -115,20 +114,20 @@ it('returns valid sortByAmount action', () => {
 });
 
 it('returns valid setStartDate action', () => {
-	const action = actions.setStartDate({ startDate: moment() });
+	const action = actions.setStartDate({ startDate: moment(0) });
 	const expected = {
 		type: 'SET_START_DATE',
-		startDate: expect.any(moment)
+		startDate: moment(0)
 	};
 
 	expect(action).toEqual(expected);
 });
 
 it('returns valid setEndDate action', () => {
-	const action = actions.setEndDate({ endDate: moment() });
+	const action = actions.setEndDate({ endDate: moment(0) });
 	const expected = {
 		type: 'SET_END_DATE',
-		endDate: expect.any(moment)
+		endDate: moment(0)
 	};
 
 	expect(action).toEqual(expected);

@@ -49,13 +49,13 @@ it('sets text filter', () => {
 it('sets startDate filter', () => {
 	const state = filtersReducer(undefined, { type: 'SET_START_DATE', startDate: moment(0) });
 
-	expect(state.startDate).toEqual(expect.any(moment));
+	expect(state.startDate).toEqual(moment(0));
 });
 
 it('sets endDate filter', () => {
 	const state = filtersReducer(undefined, { type: 'SET_END_DATE', endDate: moment(0) });
 
-	expect(state.endDate).toEqual(expect.any(moment));
+	expect(state.endDate).toEqual(moment(0));
 });
 
 /*
