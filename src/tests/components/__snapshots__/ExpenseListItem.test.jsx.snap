@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ExpenseListItem given an expense 1`] = `
+<p>
+  Invalid Expense
+</p>
+`;
+
+exports[`renders ExpenseListItem given no expense 1`] = `
+<p>
+  Invalid Expense
+</p>
+`;
