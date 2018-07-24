@@ -7,10 +7,33 @@
 		{
 			"type": "chrome",
 			"request": "attach",
-			"name": "moneyclip",
-			"url": "http://localhost:3000",
-			"userDataDir": "${workspaceRoot}/.vscode/chrome",
+			"name": "MoneyClip",
+			"url": "http://localhost",
+			"port": 3000,
 			"webRoot": "${workspaceFolder}"
+		},
+		{
+			"name": "Debug Jest",
+			"type": "node",
+			"request": "launch",
+			"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",
+			"runtimeArgs": [
+				"--inspect",
+				"test"
+			],
+			"env": {
+				"NODE_ENV": "test"
+			},
+			"args": [
+				"--runInBand",
+				"--no-cache",
+				"--env=jsdom"
+			],
+			"cwd": "${workspaceRoot}",
+			"protocol": "inspector",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"port": 9229
 		}
 	]
 }
