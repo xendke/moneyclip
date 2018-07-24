@@ -8,7 +8,7 @@ class ExpenseForm extends React.Component {
 		super(props);
 		this.state = {
 			description: props.expense ? props.expense.description : '',
-			amount: props.expense ? (props.expense.amount / 100).toString() : '',
+			amount: props.expense ? (props.expense.amount / 100).toFixed(2) : '',
 			note: props.expense ? props.expense.note : '',
 			date: props.expense ? moment(props.expense.createdAt) : moment(),
 			calendarFocused: false,
