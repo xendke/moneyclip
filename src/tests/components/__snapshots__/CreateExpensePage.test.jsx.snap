@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders CreateExpensePage correctly 1`] = `
+<div>
+  <header>
+    <h3>
+      Create
+    </h3>
+  </header>
+  <ExpenseForm
+    onSubmit={[Function]}
+  />
+</div>
+`;
