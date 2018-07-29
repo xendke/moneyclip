@@ -1,9 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ExpenseListItem given an expense 1`] = `
-<p>
-  Invalid Expense
-</p>
+<div>
+  <Link
+    replace={false}
+    to="/edit/1"
+  >
+    <h4>
+      the quick brown fox jumped over
+    </h4>
+  </Link>
+  <p>
+    $1.00
+    -
+    December 31st 1969
+  </p>
+</div>
 `;
 
 exports[`renders ExpenseListItem given no expense 1`] = `
