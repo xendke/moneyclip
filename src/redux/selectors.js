@@ -22,8 +22,5 @@ export const getVisibleExpenses = (expenses, { text = '', startDate, endDate, so
 };
 
 export const getTotalFromExpenses = (expenses) => {
-	if (expenses.length <= 0)
-		return 0;
-	else
-		return expenses.map(expense => (expense.amount)).reduce((acc, curr) => (acc + curr));
+	return expenses.map(expense => (expense.amount)).reduce((acc, curr) => (acc + curr), 0);
 };
