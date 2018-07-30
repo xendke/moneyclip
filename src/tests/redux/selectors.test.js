@@ -1,6 +1,10 @@
-import getVisibleExpenses from '../../redux/selectors';
+import { getVisibleExpenses, getTotalFromExpenses } from '../../redux/selectors';
 import moment from 'moment';
 import expenses from '../fixtures/expenses';
+
+/*
+* getVisibleExpenses
+*/
 
 it('matches text (one word)', () => {
 	const filters = {
@@ -77,4 +81,23 @@ it('filters by endDate', () => {
 	const visibleExpenses = getVisibleExpenses(expenses, filters);
 
 	expect(visibleExpenses).toEqual(expected);
+});
+
+
+/*
+* getTotalFromExpenses
+*/
+
+it('returns correct total for multiple expenses', () => {
+	const total = getTotalFromExpenses(expenses);
+	expect(total).toBe(1900);
+});
+it('returns correct total for single expense', () => {
+	const total = getTotalFromExpenses([expenses[0]]);
+	expect(total).toBe(100);
+});
+
+it('returns correct total no expenses', () => {
+	const total = getTotalFromExpenses([]);
+	expect(total).toBe(0);
 });

@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-const getVisibleExpenses = (expenses, { text = '', startDate, endDate, sortBy }) => {
+export const getVisibleExpenses = (expenses, { text = '', startDate, endDate, sortBy }) => {
 	// Filter and sort expenses.
 	const t = expenses.filter((expense) => {
 		const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
@@ -20,4 +20,10 @@ const getVisibleExpenses = (expenses, { text = '', startDate, endDate, sortBy })
 	})
 	return t;
 };
-export default getVisibleExpenses;
+
+export const getTotalFromExpenses = (expenses) => {
+	if (expenses.length <= 0)
+		return 0;
+	else
+		return expenses.map(expense => (expense.amount)).reduce((acc, curr) => (acc + curr));
+};
