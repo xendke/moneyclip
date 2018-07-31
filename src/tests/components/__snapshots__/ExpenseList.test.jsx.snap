@@ -3,7 +3,7 @@
 exports[`renders ExpenseList given empty expense list 1`] = `
 <div>
   <p>
-    No expenses yet!
+    Nothing here.
   </p>
 </div>
 `;

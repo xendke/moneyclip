@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly given data 1`] = `
+<p>
+  <span>
+    Viewing 
+    1
+     
+    expense
+     for a total of 
+    $12.00
+    .
+  </span>
+</p>
+`;
+
+exports[`renders correctly given no data 1`] = `
+<p>
+  <span>
+    Viewing no expenses. Try clearing the filters.
+  </span>
+</p>
+`;
