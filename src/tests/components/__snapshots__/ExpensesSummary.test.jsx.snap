@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly given data 1`] = `
+exports[`renders correctly given data (multiple expenses) 1`] = `
+<p>
+  <span>
+    Viewing 
+    2
+     
+    expenses
+     for a total of 
+    $12.00
+    .
+  </span>
+</p>
+`;
+
+exports[`renders correctly given data (single expense) 1`] = `
 <p>
   <span>
     Viewing 
