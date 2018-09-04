@@ -11,6 +11,8 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import configureStore from './redux/configureStore';
 
+import './firebase/firebase';
+
 const store = configureStore();
 
 const wrappedApp = (
